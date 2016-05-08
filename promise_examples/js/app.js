@@ -4,7 +4,11 @@ function getData($timeout, $q) {
 
     // simulated async function
     $timeout(function() {
-      defer.resolve('data received');
+      if(Math.round(Math.random())){
+        defer.resolve('data received');
+      } else {
+        defer.reject('An error found. Please try again');
+      }
     }, 2000);
 
     return defer.promise;
@@ -17,5 +21,7 @@ angular.module('app', [])
     var promise = getData()
      .then(function(string){
        console.log(string);
+     }, function(error) {
+       console.error(error);
      });
 });
