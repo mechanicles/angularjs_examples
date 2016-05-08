@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html ng-app="app">
+  <head>
+    <title>AngularJS Services</title>
+    <script type="text/javascript" src="../angular_min_js/angular.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Services</h1>
+      <div ng-controller="ListCtrl as list">
+        <p ng-repeat="message in list.messages"> {{ message.id }}: {{ message.text }} </p>
+      </div>
+    </div>
+
+    <div ng-controller="PostCtrl as post">
+      <form ng-submit="post.addMessage(post.newMessage)">
+        <input type="text" ng-model="post.newMessage">
+        <button type="submit">Add Message</button>
+      </form>
+    </div>
+  </body>
+</html>
